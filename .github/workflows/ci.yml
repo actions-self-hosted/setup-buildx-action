@@ -11,8 +11,8 @@ on:
 jobs:
   default:
     runs-on: self-hosted
-    strategy:
-      fail-fast: false
+    # strategy:
+      # fail-fast: false
       # matrix:
       #   cache-image-path:
       #     - /tmp/cache
@@ -25,6 +25,8 @@ jobs:
         name: Set up Docker Buildx
         id: buildx
         uses: ./
+        with:
+          cache-binary: true
       -
         name: Nodes output
         run: |
